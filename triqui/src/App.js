@@ -1,5 +1,6 @@
 import {useState} from "react"
 import './App.css';
+import Board from "./Components/Board/Board";
 
 const App = () => {
 
@@ -13,7 +14,7 @@ const App = () => {
 
   return (
     <div className="Container">
-      
+        <Board squares={squares}></Board>
     </div>
   );
 }
