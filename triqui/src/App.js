@@ -1,7 +1,16 @@
-import logo from './logo.svg';
+import {useState} from "react"
 import './App.css';
 
-function App() {
+const App = () => {
+
+  const [turn, setTurn] = useState("X")
+  const [squares, setSquares] = useState(Array(9).fill(null))
+  const [score, setScore] = useState({
+    X: 0,
+    O: 0,
+  })
+
+
   return (
     <div className="App">
       <header className="App-header">
