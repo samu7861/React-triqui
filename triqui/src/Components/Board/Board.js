@@ -4,7 +4,10 @@ const Board = ({squares}) => {
 
     const createSquares = values =>(
         values.map(value => (
-            <Square value={squares[value]}></Square>
+            <Square value={squares[value]}
+                    key={`square_${value}`}>
+
+            </Square>
         ))
     )
 
