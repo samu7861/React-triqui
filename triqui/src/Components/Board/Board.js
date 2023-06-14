@@ -1,8 +1,10 @@
+import Square from "../Square/Square"
+
 const Board = ({squares}) => {
 
     const createSquares = values =>(
         values.map(value => (
-            <div>{value}</div>
+            <Square value={squares[value]}></Square>
         ))
     )
 
