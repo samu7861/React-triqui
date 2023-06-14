@@ -1,6 +1,10 @@
 const Board = ({squares}) => {
 
-    
+    const createSquares = values =>(
+        values.map(value => (
+            <div>{value}</div>
+        ))
+    )
 
     return(
         <div className="board">
