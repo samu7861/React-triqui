@@ -2,6 +2,17 @@ import {useState} from "react"
 import './App.css';
 import Board from "./Components/Board/Board";
 
+const winningPositions = [
+  [0, 1, 2],
+  [3, 4, 5],
+  [6, 7, 8],
+  [0, 3, 6],
+  [1, 4, 7],
+  [2, 5, 8],
+  [0, 4, 8],
+  [2, 4, 6],
+];
+
 const App = () => {
 
   const [turn, setTurn] = useState("X")
@@ -12,6 +23,18 @@ const App = () => {
   })
 
   const checkForWinner = squares =>{
+    for(let i=0; i<winningPositions.length; i++){
+      const [a,b,c] = winningPositions[i]
+      if(newSquares[a] && newSquares[a] === newSquares[b] && newSquares[a] === newSquares[c])
+      endGame(newSquares[a], winningPositions[i])
+      return
+      
+    }
+
+    if(!newSquares.includes(null)){
+      endGame(null, Array.from(Array(10).keys))
+      return
+    }
     setTurn(turn === "X" ? "O" : "X")
   }
 
@@ -22,6 +45,9 @@ const App = () => {
     checkForWinner(newSquares)
   }
 
+  const endGame = (result, winningPositions) =>{
+    setTurn(null);
+  }
 
   return (
     <div className="container">
