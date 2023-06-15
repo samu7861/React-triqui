@@ -6,7 +6,9 @@ const Square = ({value, onClick, turn}) => {
         turn!==null && value === null && onClick()
     }
     return(
-        <div className="square" onClick={() => handleClick()}></div>
+        <div className="square" onClick={() => handleClick()}>
+            
+        </div>
     )
 }
 
