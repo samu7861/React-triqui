@@ -17,6 +17,7 @@ const App = () => {
 
   const [turn, setTurn] = useState("X")
   const [squares, setSquares] = useState(Array(9).fill(null))
+  const [winningSquares, setWinningSquares] = useState([])
   const [score, setScore] = useState({
     X: 0,
     O: 0,
@@ -47,6 +48,14 @@ const App = () => {
 
   const endGame = (result, winningPositions) =>{
     setTurn(null);
+    if(result !==null){
+      setScore({
+        ...score,
+        [result]: score[result]+1,
+      })
+    }
+
+    setWinningSquares(winningPositions)
   }
 
   return (
